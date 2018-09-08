@@ -10,47 +10,45 @@ import static org.hamcrest.CoreMatchers.*;
 
 public class EulerTest {
 
-    @Test
-    public void checkIfAllNumbersAreCorrect(){
-        //given
-        int maxNumber = 1000;
-        int result = 0;
-        int check = 233168;
-        //when
-        for (int i = 0; i < 1000 ; i++) {
-            if(i % 3 == 0 || i % 5 == 0){
-                System.out.print(i + " ");
-                result += i;
-                System.out.println(result);
+    private Euler euler;
 
-            }
-        }
-
-        //then
-        Assert.assertThat(check, CoreMatchers.is(233168)); // checking if the value is correct
+    @Before
+    public void init(){
+        euler = new Euler();
     }
 
     @Test
-    public void checkIf957AreCorrect(){
+    public void return8from6(){
         //given
-        int maxNumber = 957;
+        int check = 6;
 
         //when
-        boolean flag = maxNumber % 3 == 0;
-
+        int result = euler.calculation(6);
         //then
-        Assert.assertThat(maxNumber % 3 == 0 || maxNumber % 5 == 0, CoreMatchers.is(true));
+        Assert.assertThat(result, CoreMatchers.is(8)); // checking if the value is correct
     }
 
     @Test
-    public void checkIf958ANotCorrect(){
+    public void return14from9(){
         //given
-        int maxNumber = 958;
+        int check = 9;
 
         //when
-        boolean flag = maxNumber % 3 != 0;
+        int result = euler.calculation(9);
 
         //then
-        Assert.assertThat(maxNumber % 3 != 0 || maxNumber % 5 != 0, CoreMatchers.is(true));
+        Assert.assertThat(result, CoreMatchers.is(14));
+    }
+
+    @Test
+    public void return45from15(){
+        //given
+        int check = 15;
+
+        //when
+        int result = euler.calculation(15);
+
+        //then
+        Assert.assertThat(result, CoreMatchers.is(45));
     }
 }
